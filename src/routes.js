@@ -1,4 +1,5 @@
 import { Router } from "express";
+import jwt from "./token.js";
 
 import controllerCategoria from "./controllers/controlCategoria.js";
 import controllerBanner from "./controllers/controlBanner.js";
@@ -28,5 +29,9 @@ router.get("/produtos", controllerProduto.Listar);
 router.get("/produto-categorias", controllerProdutoCategoria.Listar);
 router.get("/usuarios", controllerUsuario.Listar);
 router.get("/usuario-favoritos", controllerUsuarioFavorito.Listar);
+
+router.post("/usuarios/login", controllerUsuario.Login)
+router.post("/usuarios", controllerUsuario.Inserir)
+router.post("/usuarios/perfil", jwt.ValidateJWT, controllerUsuario.Perfil)
 
 export default router;

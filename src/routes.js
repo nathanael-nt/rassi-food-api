@@ -32,6 +32,6 @@ router.get("/usuario-favoritos", controllerUsuarioFavorito.Listar);
 
 router.post("/usuarios/login", controllerUsuario.Login)
 router.post("/usuarios", controllerUsuario.Inserir)
-router.post("/usuarios/perfil", jwt.ValidateJWT, controllerUsuario.Perfil)
+router.get("/usuarios/perfil", jwt.ValidateJWT, controllerUsuario.Perfil)
 
 export default router;
